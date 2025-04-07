@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, #000, #222);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    animation: fundoNeon 5s infinite alternate;
+}
+
+@keyframes fundoNeon {
+    0% { background-color: #000; }
+    100% { background-color: #111; }
+}
+
+main.personagens {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.personagem {
+    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.personagem.selecionado {
+    display: block;
+}
+
+.personagem .imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.conteudo {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    max-width: 380px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nome-personagem {
+    text-shadow: 0px 0px 10px #00ffff, 0px 0px 20px #00ffff;
+}
+
+.botoes {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+}
+
+.botao {
+    background: none;
+    border: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.botao img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao img:hover {
+    box-shadow: 0px 0px 15px #ff00ff;
+}
+
+.botao.selecionado img {
+    transform: scale(1.2);
+}
+
+.sombra-lateral {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent);
+    z-index: 5;
+    pointer-events: none;
+}

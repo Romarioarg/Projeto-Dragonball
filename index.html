@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Personagens</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main class="personagens">
+        <div class="personagem selecionado" id="cyberstorm">
+            <picture>
+                <source srcset="./imagens/bg-cyberstorm.png" media="(min-width:768px)">
+                <img class="imagem" src="./imagens/bg-cyberstorm-mobile.png" alt="Personagem Cyberstorm">
+            </picture>
+            <div class="conteudo">
+                <h2 class="nome-personagem">Cyberstorm</h2>
+                <p class="descricao">Kael Takeda, conhecido no submundo digital como "Cyberstorm", é um programador
+                    prodígio especializado em segurança cibernética e inteligência artificial...</p>
+            </div>
+        </div>
+
+        <div class="personagem" id="codebreaker">
+            <picture>
+                <source srcset="./imagens/bg-codebreaker.png" media="(min-width:768px)">
+                <img class="imagem" src="./imagens/bg-codebreaker-mobile.png" alt="Personagem Codebreaker">
+            </picture>
+            <div class="conteudo">
+                <h2 class="nome-personagem">Codebreaker</h2>
+                <p class="descricao">Mestre em decifrar os mais complexos sistemas de segurança, Codebreaker é um
+                    gênio estratégico...</p>
+            </div>
+        </div>
+
+        <div class="personagem" id="neonpulse">
+            <picture>
+                <source srcset="./imagens/bg-neonpulse.png" media="(min-width:768px)">
+                <img class="imagem" src="./imagens/bg-neonpulse-mobile.png" alt="Personagem Neonpulse">
+            </picture>
+            <div class="conteudo">
+                <h2 class="nome-personagem">Neonpulse</h2>
+                <p class="descricao">Rápida como um raio e com reflexos sobre-humanos, Neonpulse domina as ruas com
+                    sua agilidade...</p>
+            </div>
+        </div>
+
+        <div class="sombra-lateral"></div>
+    </main>
+
+    <ul class="botoes">
+        <li>
+            <button class="botao selecionado" data-personagem="cyberstorm">
+                <img src="./imagens/icone-cyberstorm.png" alt="ícone Cyberstorm">
+            </button>
+        </li>
+        <li>
+            <button class="botao" data-personagem="codebreaker">
+                <img src="./imagens/icone-codebreaker.png" alt="ícone Codebreaker">
+            </button>
+        </li>
+        <li>
+            <button class="botao" data-personagem="neonpulse">
+                <img src="./imagens/icone-neonpulse.png" alt="ícone Neonpulse">
+            </button>
+        </li>
+    </ul>
+
+    <script>
+        const botoes = document.querySelectorAll('.botao');
+        const personagens = document.querySelectorAll('.personagem');
+
+        botoes.forEach(botao => {
+            botao.addEventListener('click', () => {
+                const id = botao.getAttribute('data-personagem');
+
+                document.querySelector('.botao.selecionado').classList.remove('selecionado');
+                botao.classList.add('selecionado');
+
+                document.querySelector('.personagem.selecionado').classList.remove('selecionado');
+                document.getElementById(id).classList.add('selecionado');
+            });
+        });
+    </script>
+</body>
+</html>
